@@ -36,7 +36,6 @@ def kelvin_para_fahrenheit(kelvin: float) -> float:
     return celsius_para_fahrenheit(celsius)
 
 
-# pragma: no cover
 def menu():
     print("\nEscolha a conversão desejada:")
     print("1 - Celsius para Fahrenheit")
@@ -47,58 +46,3 @@ def menu():
     print("6 - Kelvin para Fahrenheit")
     print("7 - Sair")
     return input("Opção: ").strip()
-
-
-# pragma: no cover
-def main():
-    print("=== Conversor de Temperatura ===")
-
-    try:
-        while True:
-            opcao = menu()
-
-            if opcao == "7":
-                print("Encerrando o conversor. Até mais!")
-                break
-
-            if opcao not in ("1", "2", "3", "4", "5", "6"):
-                print("Opção inválida. Escolha uma opção de 1 a 7.")
-                continue
-
-            entrada = input("Digite a temperatura (ou 'sair' para voltar ao menu): ")
-
-            if entrada.strip().lower() == "sair":
-                print("Voltando ao menu principal...")
-                continue
-
-            try:
-                valor = float(entrada)
-            except ValueError:
-                print("Valor inválido. Digite um número (ex: 25.5).")
-                continue
-
-            if opcao == "1":
-                res = celsius_para_fahrenheit(valor)
-                print(f"{valor}°C equivalem a {res:.2f}°F")
-            elif opcao == "2":
-                res = fahrenheit_para_celsius(valor)
-                print(f"{valor}°F equivalem a {res:.2f}°C")
-            elif opcao == "3":
-                res = celsius_para_kelvin(valor)
-                print(f"{valor}°C equivalem a {res:.2f}K")
-            elif opcao == "4":
-                res = kelvin_para_celsius(valor)
-                print(f"{valor}K equivalem a {res:.2f}°C")
-            elif opcao == "5":
-                res = fahrenheit_para_kelvin(valor)
-                print(f"{valor}°F equivalem a {res:.2f}K")
-            elif opcao == "6":
-                res = kelvin_para_fahrenheit(valor)
-                print(f"{valor}K equivalem a {res:.2f}°F")
-
-    except KeyboardInterrupt:
-        print("\nPrograma interrompido pelo usuário. Até mais!")
-
-
-if __name__ == "__main__":
-    main()
