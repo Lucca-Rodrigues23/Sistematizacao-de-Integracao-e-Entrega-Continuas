@@ -36,6 +36,7 @@ def kelvin_para_fahrenheit(kelvin: float) -> float:
     return celsius_para_fahrenheit(celsius)
 
 
+# pragma: no cover
 def menu():
     print("\nEscolha a conversão desejada:")
     print("1 - Celsius para Fahrenheit")
@@ -48,6 +49,7 @@ def menu():
     return input("Opção: ").strip()
 
 
+# pragma: no cover
 def main():
     print("=== Conversor de Temperatura ===")
 
